@@ -222,207 +222,194 @@ button { cursor: pointer; font-family: var(--sans); }
 /* ═══════════════════════════════════
    NAVBAR REVISADA
 ═══════════════════════════════════ */
+/* ═══════════════════════════════════
+   NAVBAR MASTER - FINAL EDITION
+   Logo XL (100px) | Luxury Spacing | Anti-Sway
+═══════════════════════════════════ */
+/* ═══════════════════════════════════
+   NAVBAR MASTER - PRODUCTION READY
+   Logo 100px | High-Contrast Scroll | Anti-Sway
+═══════════════════════════════════ */
+/* ═══════════════════════════════════
+   NAVBAR MASTER - VERSÃO FINAL 1.0
+   Estética: Apple / Stripe High-End
+═══════════════════════════════════ */
+
 #navbar {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 1000;
-
-  height: 88px;
-  display: flex;
-  align-items: center;
-
-  padding: 0 clamp(20px, 6vw, 80px);
-
-  background: linear-gradient(
-    to bottom,
-    rgba(7, 13, 10, 0.85),
-    rgba(7, 13, 10, 0.4),
-    transparent
-  );
-
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-
-  border-bottom: 1px solid rgba(255,255,255,0.04);
-
-  transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 120px; 
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 0 clamp(24px, 8vw, 120px);
+  
+  /* Estado Inicial (Topo) */
+  background: linear-gradient(to bottom, rgba(7, 13, 10, 0.95), rgba(7, 13, 10, 0.4), transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* SCROLLED */
+/* 🟢 ESTADO SCROLLED (BRANCO ABSOLUTO) */
 #navbar.scrolled {
-  height: 72px;
-
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(18px);
-
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
-
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  height: 85px;
+  background: #FFFFFF !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-/* LOGO */
+/* ═════════════ LOGO E IDENTIDADE ═════════════ */
+
 .nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-right: auto;
+  display: flex !important;
+  align-items: center !important;
+  gap: 24px !important;
   text-decoration: none;
+  flex-shrink: 0;
 }
 
 .nav-logo-mark {
-  width: 42px; height: 42px;
-
-  background: rgba(201, 168, 76, 0.08);
-  border: 1px solid rgba(201, 168, 76, 0.25);
-
-  border-radius: 14px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  transition: all 0.35s ease;
+  background: transparent !important;
+  border: none !important;
+  height: 90px !important; /* Logo Master */
+  width: auto !important;
+  display: flex !important;
+  align-items: center !important;
+  transition: height 0.4s ease !important;
 }
 
-#navbar.scrolled .nav-logo-mark {
-  background: rgba(201, 168, 76, 0.12);
-  border-color: rgba(201, 168, 76, 0.4);
+#navbar.scrolled .nav-logo-mark { 
+  height: 65px !important; 
 }
 
-/* TIPOGRAFIA LOGO */
+.nav-img-logo {
+  height: 100% !important;
+  width: auto !important;
+  object-fit: contain !important;
+}
+
+.nav-logo-text {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+}
+
 .nav-logo-name {
   font-family: var(--serif);
-  font-size: 18px;
+  font-size: 20px !important;
   font-weight: 500;
-  letter-spacing: 0.02em;
-
-  color: #ffffff;
-
-  transition: all 0.3s ease;
+  color: #FFFFFF !important;
+  line-height: 1 !important;
 }
 
 .nav-logo-sub {
-  font-size: 9px;
-  letter-spacing: 0.18em;
-  color: rgba(255,255,255,0.6);
-
-  transition: all 0.3s ease;
+  font-size: 10px !important;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.6) !important;
 }
 
-#navbar.scrolled .nav-logo-name { 
-  color: #1a1a1a;
-}
+/* Inversão de Cor no Scroll */
+#navbar.scrolled .nav-logo-name { color: #070D0A !important; }
+#navbar.scrolled .nav-logo-sub { color: #6E6E73 !important; }
 
-#navbar.scrolled .nav-logo-sub { 
-  color: #777;
-}
+/* ═════════════ LINKS DE NAVEGAÇÃO (CORREÇÃO DA LISTA) ═════════════ */
 
-/* LINKS */
 .nav-links {
-  display: flex;
-  gap: 32px;
-  list-style: none;
-  margin-right: 36px;
+  display: flex !important; /* Garante que fiquem em linha */
+  flex-direction: row !important;
+  list-style: none !important; /* Remove os pontos da lista */
+  gap: 40px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  margin-right: 40px !important;
+}
+
+.nav-links li {
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .nav-links a {
   font-size: 12px;
-  font-weight: 500;
-
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-
-  color: rgba(255,255,255,0.75);
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.8) !important;
   text-decoration: none;
-
-  position: relative;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease;
+  white-space: nowrap;
 }
 
-#navbar.scrolled .nav-links a {
-  color: #444;
+/* Inversão de Cor nos Links */
+#navbar.scrolled .nav-links a { 
+  color: #1D1D1F !important; 
 }
 
-/* underline mais premium */
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-
-  width: 100%;
-  height: 1.5px;
-
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--gold),
-    transparent
-  );
-
-  transform: scaleX(0.3);
-  opacity: 0;
-
-  transition: all 0.4s ease;
+#navbar.scrolled .nav-links a:hover { 
+  color: var(--gold-premium) !important; 
 }
 
-.nav-links a:hover {
-  color: #fff;
+/* ═════════════ BOTÃO CTA (AGENDAR) ═════════════ */
+
+.nav-cta-wrap {
+  flex-shrink: 0;
 }
 
-#navbar.scrolled .nav-links a:hover {
-  color: var(--gold);
-}
-
-.nav-links a:hover::after {
-  transform: scaleX(1);
-  opacity: 1;
-}
-
-/* CTA (AGORA FORTE DE VERDADE) */
 .nav-cta-wrap .btn-primary {
-  padding: 12px 26px;
-
-  font-size: 11px;
-  letter-spacing: 0.08em;
-
-  border-radius: 8px;
-
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 12px 28px !important;
+  font-size: 11px !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 50px !important;
+  background: var(--gold-premium) !important;
+  color: #FFFFFF !important; /* Texto Branco no Topo */
+  border: none !important;
+  text-decoration: none;
   transition: all 0.3s ease;
-
-  box-shadow: 0 10px 25px rgba(201, 168, 76, 0.15);
+  white-space: nowrap;
+  box-shadow: 0 8px 20px rgba(201, 168, 76, 0.2);
 }
 
-.nav-cta-wrap .btn-primary:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 14px 35px rgba(201, 168, 76, 0.25);
-}
-
-/* SCROLLED CTA */
+/* Texto Escuro no Botão Dourado durante o Scroll para Contraste */
 #navbar.scrolled .nav-cta-wrap .btn-primary {
-  box-shadow: 0 6px 20px rgba(201, 168, 76, 0.2);
+  color: #070D0A !important; 
+  box-shadow: 0 4px 15px rgba(201, 168, 76, 0.2) !important;
 }
 
-/* MOBILE */
+/* ═════════════ 📱 MOBILE MASTER ═════════════ */
+
 @media (max-width: 1024px) {
-
-  #navbar {
-    height: 72px;
-    padding: 0 20px;
+  #navbar { 
+    height: 85px !important; 
+    padding: 0 20px !important; 
   }
-
-  .nav-links {
-    display: none;
+  
+  .nav-links { 
+    display: none !important; /* Esconde links no mobile */
   }
-
-  .nav-cta-wrap .btn-primary {
-    padding: 11px 18px;
-    font-size: 10px;
-  }
+  
+  .nav-logo { gap: 12px !important; }
+  .nav-logo-mark { height: 60px !important; }
+  .nav-logo-name { font-size: 16px !important; }
+  
+  #navbar.scrolled .nav-logo-mark { height: 50px !important; }
 }
 
-
-
+/* LOCK AXIS (SOLUÇÃO ANTI-BALANÇO) */
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+  margin: 0; padding: 0;
+}
 :root {
   /* 🎨 CORES PRINCIPAIS */
   --forest-dark: #070d0a;
@@ -2826,76 +2813,6 @@ footer {
   </div>
 </nav>
 
-<style>
-/* ═══════════════════════════════════
-   NAVBAR LOGO - GRAND FORMAT (UP +35%)
-   Estética: Luxury Editorial / Apple
-═══════════════════════════════════ */
-
-.nav-logo-mark {
-  /* Reset Absoluto contra fundos/bordas */
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  padding: 0 !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  flex-shrink: 0 !important;
-  
-  /* 🖥️ DESKTOP: Aumentado em ~35% (De 58px para 80px) */
-  height: 80px !important; 
-  width: auto !important;
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
-  margin-right: 10px;
-}
-
-/* Redução no Scroll (Mantém uma escala generosa mesmo rolando) */
-#navbar.scrolled .nav-logo-mark {
-  height: 60px !important;
-}
-
-.nav-img-logo {
-  height: 100% !important;
-  width: auto !important;
-  object-fit: contain !important;
-  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-/* 📱 MOBILE: Aumentado em ~35% (De 42px para 58px) */
-@media (max-width: 768px) {
-  #navbar {
-    padding: 12px 20px !important; /* Reduzi o padding vertical para compensar o logo maior */
-  }
-
-  .nav-logo-mark {
-    height: 58px !important; 
-  }
-
-  .nav-logo-text {
-    /* Ajuste para que o texto não "brigue" com o logo gigante */
-    gap: 2px !important;
-  }
-
-  .nav-logo-name {
-    font-size: 16px !important;
-    line-height: 1.1 !important;
-  }
-}
-
-/* ═══════════════════════════════════
-   SISTEMA ANTI-BALANÇO (LOCK AXIS)
-═══════════════════════════════════ */
-html, body {
-  width: 100% !important;
-  max-width: 100% !important;
-  overflow-x: hidden !important;
-}
-
-section, footer, header, main {
-  overflow: hidden !important;
-}
-</style>
 
 <section class="hero">
   <div class="hero-bg-container">
