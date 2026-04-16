@@ -2806,13 +2806,7 @@ footer {
 <nav id="navbar">
   <a href="#" class="nav-logo">
     <div class="nav-logo-mark">
-      <svg viewBox="0 0 20 20" fill="none">
-        <path d="M10 17.5V11" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"/>
-        <path d="M10 11C10 11 7 9 5.5 6.5C7.8 7 9 9 10 11Z" fill="#C9A84C" opacity=".75"/>
-        <path d="M10 11C10 11 13 9 14.5 6.5C12.2 7 11 9 10 11Z" fill="#C9A84C" opacity=".75"/>
-        <path d="M10 14.5C10 14.5 7.5 13 6 10.5C8.5 11 9.5 13 10 14.5Z" fill="#C9A84C"/>
-        <path d="M10 14.5C10 14.5 12.5 13 14 10.5C11.5 11 10.5 13 10 14.5Z" fill="#C9A84C"/>
-      </svg>
+      <img src="logo-removebg-preview.png" alt="Logo Clínica Árvore da Vida Psicologia Marília SP" class="nav-img-logo">
     </div>
     <div class="nav-logo-text">
       <span class="nav-logo-name">Árvore da Vida</span>
@@ -2831,6 +2825,77 @@ footer {
     <a href="#agendar" class="btn btn-primary">Agendar Consulta</a>
   </div>
 </nav>
+
+<style>
+/* ═══════════════════════════════════
+   NAVBAR LOGO - GRAND FORMAT (UP +35%)
+   Estética: Luxury Editorial / Apple
+═══════════════════════════════════ */
+
+.nav-logo-mark {
+  /* Reset Absoluto contra fundos/bordas */
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+  
+  /* 🖥️ DESKTOP: Aumentado em ~35% (De 58px para 80px) */
+  height: 80px !important; 
+  width: auto !important;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  margin-right: 10px;
+}
+
+/* Redução no Scroll (Mantém uma escala generosa mesmo rolando) */
+#navbar.scrolled .nav-logo-mark {
+  height: 60px !important;
+}
+
+.nav-img-logo {
+  height: 100% !important;
+  width: auto !important;
+  object-fit: contain !important;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* 📱 MOBILE: Aumentado em ~35% (De 42px para 58px) */
+@media (max-width: 768px) {
+  #navbar {
+    padding: 12px 20px !important; /* Reduzi o padding vertical para compensar o logo maior */
+  }
+
+  .nav-logo-mark {
+    height: 58px !important; 
+  }
+
+  .nav-logo-text {
+    /* Ajuste para que o texto não "brigue" com o logo gigante */
+    gap: 2px !important;
+  }
+
+  .nav-logo-name {
+    font-size: 16px !important;
+    line-height: 1.1 !important;
+  }
+}
+
+/* ═══════════════════════════════════
+   SISTEMA ANTI-BALANÇO (LOCK AXIS)
+═══════════════════════════════════ */
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+section, footer, header, main {
+  overflow: hidden !important;
+}
+</style>
 
 <section class="hero">
   <div class="hero-bg-container">
