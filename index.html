@@ -261,28 +261,40 @@ button { cursor: pointer; font-family: var(--sans); }
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-/* ═════════════ LOGO E IDENTIDADE ═════════════ */
+/* ═════════════ NAVBAR BASE ═════════════ */
+#navbar {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 0 5%;
+  transition: all 0.4s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
 
+/* ═════════════ LOGO E IDENTIDADE ═════════════ */
 .nav-logo {
   display: flex !important;
   align-items: center !important;
-  gap: 24px !important;
+  gap: 20px;
   text-decoration: none;
-  flex-shrink: 0;
+  flex-shrink: 1; /* Permite que a logo diminua levemente se necessário */
+  min-width: 0; /* Evita quebra de flexbox */
 }
 
 .nav-logo-mark {
   background: transparent !important;
   border: none !important;
-  height: 90px !important; /* Logo Master */
+  height: 80px !important; 
   width: auto !important;
   display: flex !important;
   align-items: center !important;
   transition: height 0.4s ease !important;
+  flex-shrink: 0;
 }
 
 #navbar.scrolled .nav-logo-mark { 
-  height: 65px !important; 
+  height: 60px !important; 
 }
 
 .nav-img-logo {
@@ -294,7 +306,8 @@ button { cursor: pointer; font-family: var(--sans); }
 .nav-logo-text {
   display: flex !important;
   flex-direction: column !important;
-  gap: 4px !important;
+  gap: 2px !important;
+  white-space: nowrap;
 }
 
 .nav-logo-name {
@@ -302,39 +315,30 @@ button { cursor: pointer; font-family: var(--sans); }
   font-size: 20px !important;
   font-weight: 500;
   color: #FFFFFF !important;
-  line-height: 1 !important;
+  line-height: 1.1 !important;
 }
 
 .nav-logo-sub {
   font-size: 10px !important;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.1em;
   color: rgba(255, 255, 255, 0.6) !important;
 }
 
-/* Inversão de Cor no Scroll */
 #navbar.scrolled .nav-logo-name { color: #070D0A !important; }
 #navbar.scrolled .nav-logo-sub { color: #6E6E73 !important; }
 
-/* ═════════════ LINKS DE NAVEGAÇÃO (CORREÇÃO DA LISTA) ═════════════ */
-
+/* ═════════════ LINKS (DESKTOP) ═════════════ */
 .nav-links {
-  display: flex !important; /* Garante que fiquem em linha */
-  flex-direction: row !important;
-  list-style: none !important; /* Remove os pontos da lista */
-  gap: 40px !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  margin-right: 40px !important;
-}
-
-.nav-links li {
-  margin: 0 !important;
-  padding: 0 !important;
+  display: flex !important;
+  list-style: none !important;
+  gap: 30px !important;
+  margin: 0 auto !important;
+  padding: 0 20px !important;
 }
 
 .nav-links a {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -344,66 +348,67 @@ button { cursor: pointer; font-family: var(--sans); }
   white-space: nowrap;
 }
 
-/* Inversão de Cor nos Links */
-#navbar.scrolled .nav-links a { 
-  color: #1D1D1F !important; 
-}
+#navbar.scrolled .nav-links a { color: #1D1D1F !important; }
 
-#navbar.scrolled .nav-links a:hover { 
-  color: var(--gold-premium) !important; 
-}
-
-/* ═════════════ BOTÃO CTA (AGENDAR) ═════════════ */
-
+/* ═════════════ BOTÃO CTA ═════════════ */
 .nav-cta-wrap {
-  flex-shrink: 0;
+  flex-shrink: 0; /* Botão NUNCA encolhe */
 }
 
 .nav-cta-wrap .btn-primary {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  padding: 12px 28px !important;
+  padding: 12px 24px !important;
   font-size: 11px !important;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
   border-radius: 50px !important;
-  background: var(--gold-premium) !important;
-  color: #FFFFFF !important; /* Texto Branco no Topo */
-  border: none !important;
+  background: var(--gold-premium, #c9a84c) !important;
+  color: #FFFFFF !important;
   text-decoration: none;
   transition: all 0.3s ease;
   white-space: nowrap;
-  box-shadow: 0 8px 20px rgba(201, 168, 76, 0.2);
 }
 
-/* Texto Escuro no Botão Dourado durante o Scroll para Contraste */
 #navbar.scrolled .nav-cta-wrap .btn-primary {
   color: #070D0A !important; 
-  box-shadow: 0 4px 15px rgba(201, 168, 76, 0.2) !important;
 }
 
-/* ═════════════ 📱 MOBILE MASTER ═════════════ */
-
+/* ═════════════ 📱 MOBILE MASTER (Ajustes de Espaço) ═════════════ */
 @media (max-width: 1024px) {
+  .nav-links { display: none !important; }
+  
   #navbar { 
-    height: 85px !important; 
-    padding: 0 20px !important; 
+    height: 80px !important; 
+    padding: 0 15px !important; 
   }
-  
-  .nav-links { 
-    display: none !important; /* Esconde links no mobile */
+
+  .nav-logo { gap: 10px !important; }
+  .nav-logo-mark { height: 55px !important; }
+  .nav-logo-name { font-size: 17px !important; }
+  .nav-logo-sub { font-size: 8px !important; letter-spacing: 0.05em; }
+
+  /* Ajuste crucial para o botão não sumir */
+  .nav-cta-wrap .btn-primary {
+    padding: 10px 18px !important;
+    font-size: 10px !important;
   }
-  
-  .nav-logo { gap: 12px !important; }
-  .nav-logo-mark { height: 60px !important; }
-  .nav-logo-name { font-size: 16px !important; }
-  
-  #navbar.scrolled .nav-logo-mark { height: 50px !important; }
 }
 
-/* LOCK AXIS (SOLUÇÃO ANTI-BALANÇO) */
+/* Ajuste fino para celulares muito pequenos (iPhone SE, etc) */
+@media (max-width: 380px) {
+  .nav-logo-sub { display: none !important; } /* Esconde o "Marília, SP" para dar espaço ao botão */
+  .nav-logo-name { font-size: 15px !important; }
+  .nav-logo-mark { height: 45px !important; }
+  .nav-cta-wrap .btn-primary {
+    padding: 8px 14px !important;
+    font-size: 9px !important;
+  }
+}
+
+/* ANTI-BALANÇO */
 html, body {
   width: 100% !important;
   max-width: 100% !important;
@@ -2793,7 +2798,7 @@ footer {
 <nav id="navbar">
   <a href="#" class="nav-logo">
     <div class="nav-logo-mark">
-      <img src="logo-removebg-preview.png" alt="Logo Clínica Árvore da Vida Psicologia Marília SP" class="nav-img-logo">
+      <img src="logo-removebg-preview.png" alt="Logo Clínica Árvore da Vida" class="nav-img-logo">
     </div>
     <div class="nav-logo-text">
       <span class="nav-logo-name">Árvore da Vida</span>
@@ -2812,7 +2817,6 @@ footer {
     <a href="#agendar" class="btn btn-primary">Agendar Consulta</a>
   </div>
 </nav>
-
 
 <section class="hero">
   <div class="hero-bg-container">
